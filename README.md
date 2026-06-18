@@ -31,10 +31,9 @@ a buy order slightly under it and a sell order slightly over it, then
 re-checks the account snapshot a few seconds later to see whether either
 order filled:
 
-```
-<img width="1042" height="652" alt="image" src="https://github.com/user-attachments/assets/cfab4eab-8e83-4acb-935d-3e952dcbedb0" />
 
-```
+[<img width="1042" height="652" alt="image" src="https://github.com/user-attachments/assets/cfab4eab-8e83-4acb-935d-3e952dcbedb0" />](https://github.com/jjoing/auto_trading_system/issues/new)
+
 
 The program does not compute P&L itself; profit/loss was checked manually
 against the KIS mock-trading app alongside these logs.
@@ -84,9 +83,16 @@ trading_system/
   temporarily drop to zero when unfilled orders accumulated.
 
 
+
+
+
 ---
 
-# 삼성전자 자동매매 시스템 (ECO4126 과제)
+
+
+
+
+# 자동매매 시스템 (ECO4126)
 
 ECO4126 수업 과제로 진행한 프로젝트입니다. 한국투자증권(KIS) Open API를 이용해서
 삼성전자(005930) 종목을 대상으로 시세를 조회하고, 직접 매수/매도 주문을 넣고,
@@ -112,10 +118,7 @@ ECO4126 수업 과제로 진행한 프로젝트입니다. 한국투자증권(KIS
 현재가를 조회하고, 그보다 살짝 낮은 가격에 매수, 살짝 높은 가격에 매도 주문을
 넣은 뒤, 몇 초 후 계정 상태를 다시 조회해서 체결 여부를 확인합니다:
 
-```
-<img width="1042" height="652" alt="image" src="https://github.com/user-attachments/assets/3b7cbeef-97ec-49c4-b011-deebb6bca40c" />
-
-```
+<img width="1042" height="652" alt="Image" src="https://github.com/user-attachments/assets/12716fd6-2106-4e4b-8450-87f56de7a9cb" />
 
 프로그램이 직접 손익을 계산하지는 않고, 위 로그와 함께 한투 모의투자 앱을
 직접 확인하면서 손익 여부를 판단했습니다.
