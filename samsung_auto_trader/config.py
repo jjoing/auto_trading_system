@@ -43,6 +43,8 @@ MARKET_DIV_CODE = "J"  # FID_COND_MRKT_DIV_CODE: J = KRX
 # ---------------------------------------------------------------------------
 ORDER_PRICE_OFFSET_KRW = 1000  # buy = current_price - offset, sell = current_price + offset
 ORDER_QUANTITY = 1  # shares per order — placeholder, adjust as needed
+MIN_PROFIT_MARGIN_KRW = 500  # a sell is never quoted below avg_cost + this, so any fill is a guaranteed gain
+MAX_POSITION_QUANTITY = 10  # stop adding new buy orders once holdings reach this size
 
 # ---------------------------------------------------------------------------
 # Trading window (local time)

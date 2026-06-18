@@ -41,11 +41,23 @@ def run_one_cycle(client: APIClient) -> None:
     before = get_account_snapshot(client)
 
     buy_price = price - config.ORDER_PRICE_OFFSET_KRW
-    sell_price = price + config.ORDER_PRICE_OFFSET_KRW
 
-    place_buy_order(client, buy_price)
+    if before.holding_quantity < config.MAX_POSITION_QUANTITY:
+        place_buy_order(client, buy_price)
+    else:
+        logger.info(
+            "Skipping buy order: position at cap (%d shares held, max %d).",
+            before.holding_quantity,
+            config.MAX_POSITION_QUANTITY,
+        )
 
     if before.orderable_quantity >= config.ORDER_QUANTITY:
+        # Never quote a sell below cost: take whichever is higher, the usual
+        # current-price offset or a guaranteed margin over the average buy price.
+        sell_price = max(
+            price + config.ORDER_PRICE_OFFSET_KRW,
+            before.avg_purchase_price_krw + config.MIN_PROFIT_MARGIN_KRW,
+        )
         place_sell_order(client, sell_price)
     else:
         logger.info(
